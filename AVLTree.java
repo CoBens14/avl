@@ -69,6 +69,22 @@ public class AVLTree <T extends Comparable<? super T>> {
         }
     }
 
+    private Node<T> rotateLeft(Node<T> root) {
+        Node<T> newRoot = root.right;
+        root.right = newRoot.left;
+        newRoot.left = root;
+        return newRoot;
+
+    }
+
+    private Node<T> rotateRight(Node<T> root) {
+        Node<T> newRoot = root.left;
+        root.left = newRoot.right;
+        newRoot.right = root;
+        return newRoot;
+
+    }
+
     private Node<T> insertH(T data, Node<T> root) {
         if (root == null) {
             return new Node<>(data);
